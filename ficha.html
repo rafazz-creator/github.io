@@ -3,14 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ficha Interativa</title>
+<title>Ficha - Fragmentos da Queda</title>
 
 <style>
 body {
-    background: black;
+    background-color: black;
     color: white;
-    font-family: Arial;
+    font-family: Courier New, monospace;
     text-align: center;
+    margin: 0;
+}
+
+h1 {
+    color: red;
+    margin-top: 40px;
+}
+
+.ficha-img {
+    max-width: 90%;
+    margin: 30px 0;
+    border: 2px solid red;
+    box-shadow: 0 0 20px red;
 }
 
 button {
@@ -19,6 +32,8 @@ button {
     background: red;
     border: none;
     cursor: pointer;
+    color: black;
+    font-weight: bold;
 }
 
 button:hover {
@@ -27,19 +42,43 @@ button:hover {
 
 #resultado {
     margin-top: 20px;
-    font-size: 24px;
+    font-size: 22px;
     color: red;
+}
+
+.voltar {
+    margin: 40px;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Teste de Dado</h1>
+<h1>Ficha de Personagem</h1>
+
+<!-- IMAGEM DA FICHA -->
+<img src="ficha1.jpg.jpeg" class="ficha-img">
+<img src="ficha2.jpg.jpeg" class="ficha-img">
+<img src="ficha3.jpg.jpeg" class="ficha-img">
+
+<h2>Teste de Dado</h2>
 
 <button onclick="rolarDado()">Rolar 1d20</button>
 
 <div id="resultado">Clique no botão</div>
+
+<div class="voltar">
+    <a href="index.html">← Voltar</a>
+</div>
 
 <script>
 function rolarDado() {
