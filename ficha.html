@@ -7,120 +7,44 @@
 
 <style>
 body {
-    background-color: #000;
+    background: black;
     color: white;
-    font-family: Courier New, monospace;
-    text-align: center;
-}
-
-h1 {
-    color: red;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-}
-
-input {
-    padding: 5px;
-    margin: 5px;
-    width: 80px;
+    font-family: Arial;
     text-align: center;
 }
 
 button {
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 15px 30px;
+    font-size: 18px;
     background: red;
     border: none;
-    color: black;
     cursor: pointer;
-    font-weight: bold;
 }
 
 button:hover {
     background: darkred;
 }
 
-.barra {
-    width: 300px;
-    height: 20px;
-    border: 2px solid red;
-    margin: 10px auto;
-}
-
-.progresso {
-    height: 100%;
-    background: red;
-    width: 0%;
+#resultado {
+    margin-top: 20px;
+    font-size: 24px;
+    color: red;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Ficha Interativa</h1>
-
-<div class="container">
-
-<h2>Identidade</h2>
-Nome: <input type="text" id="nome"><br>
-Reino: <input type="text" id="reino"><br>
-Idade: <input type="number" id="idade"><br>
-
-<h2>Atributos</h2>
-Vigor: <input type="number" id="vigor" value="0"><br>
-Agilidade: <input type="number" id="agilidade" value="0"><br>
-Intelecto: <input type="number" id="intelecto" value="0"><br>
-
-<h2>Teste de Dado</h2>
-Atributo usado:
-<select id="atributoEscolhido">
-<option value="vigor">Vigor</option>
-<option value="agilidade">Agilidade</option>
-<option value="intelecto">Intelecto</option>
-</select>
-
-<br>
-
-Perícia bônus: <input type="number" id="bonusPericia" value="0"><br>
+<h1>Teste de Dado</h1>
 
 <button onclick="rolarDado()">Rolar 1d20</button>
 
-<h3 id="resultado"></h3>
-
-<h2>Corrupção</h2>
-<input type="range" min="0" max="100" value="0" id="corrupcao" oninput="atualizarBarra()">
-<div class="barra">
-<div class="progresso" id="barraCorrupcao"></div>
-</div>
-
-<br><br>
-<a href="index.html" style="color:red;">← Voltar</a>
-
-</div>
+<div id="resultado">Clique no botão</div>
 
 <script>
 function rolarDado() {
-    let dado = Math.floor(Math.random() * 20) + 1;
-
-    let atributo = document.getElementById("atributoEscolhido").value;
-    let valorAtributo = parseInt(document.getElementById(atributo).value) || 0;
-    let bonus = parseInt(document.getElementById("bonusPericia").value) || 0;
-
-    let total = dado + valorAtributo + bonus;
-
-    document.getElementById("resultado").innerHTML =
-        "Dado: " + dado +
-        " | Atributo: " + valorAtributo +
-        " | Perícia: " + bonus +
-        " | TOTAL: " + total;
-}
-
-function atualizarBarra() {
-    let valor = document.getElementById("corrupcao").value;
-    document.getElementById("barraCorrupcao").style.width = valor + "%";
+    var numero = Math.floor(Math.random() * 20) + 1;
+    document.getElementById("resultado").innerHTML = "Você rolou: " + numero;
 }
 </script>
 
