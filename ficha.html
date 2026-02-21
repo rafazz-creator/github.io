@@ -3,67 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ficha de Personagem - Fragmentos da Queda</title>
+<title>Ficha Interativa</title>
 
 <style>
 body {
     background-color: #000;
-    color: #fff;
+    color: white;
     font-family: Courier New, monospace;
-    margin: 0;
-    padding: 0;
     text-align: center;
 }
 
 h1 {
     color: red;
-    margin-top: 40px;
 }
 
-.ficha-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin: 50px 0;
+.container {
+    width: 80%;
+    margin: auto;
 }
 
-.ficha-img {
-    max-width: 90%;
-    height: auto;
+input {
+    padding: 5px;
+    margin: 5px;
+    width: 80px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background: red;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: darkred;
+}
+
+.barra {
+    width: 300px;
+    height: 20px;
     border: 2px solid red;
-    box-shadow: 0 0 20px red;
+    margin: 10px auto;
 }
 
-.voltar {
-    margin: 40px;
-}
-
-a {
-    color: red;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-a:hover {
-    text-decoration: underline;
+.progresso {
+    height: 100%;
+    background: red;
+    width: 0%;
 }
 </style>
-
 </head>
+
 <body>
 
-<h1>Ficha de Personagem</h1>
+<h1>Ficha Interativa</h1>
 
-<div class="ficha-container">
-    <img src="ficha1.jpg.jpeg" class="ficha-img">
-    <img src="ficha2.jpg.jpeg" class="ficha-img">
-    <img src="ficha3.jpg.jpeg" class="ficha-img">
+<div class="container">
+
+<h2>Identidade</h2>
+Nome: <input type="text" id="nome"><br>
+Reino: <input type="text" id="reino"><br>
+Idade: <input type="number" id="idade"><br>
+
+<h2>Atributos</h2>
+Vigor: <input type="number" id="vigor" value="0"><br>
+Agilidade: <input type="number" id="agilidade" value="0"><br>
+Intelecto: <input type="number" id="intelecto" value="0"><br>
+
+<h2>Teste de Dado</h2>
+Atributo usado:
+<select id="atributoEscolhido">
+<option value="vigor">Vigor</option>
+<option value="agilidade">Agilidade</option>
+<option value="intelecto">Intelecto</option>
+</select>
+
+<br>
+
+Perícia bônus: <input type="number" id="bonusPericia" value="0"><br>
+
+<button onclick="rolarDado()">Rolar 1d20</button>
+
+<h3 id="resultado"></h3>
+
+<h2>Corrupção</h2>
+<input type="range" min="0" max="100" value="0" id="corrupcao" oninput="atualizarBarra()">
+<div class="barra">
+<div class="progresso" id="barraCorrupcao"></div>
 </div>
 
-<div class="voltar">
-    <a href="index.html">← Voltar ao Início</a>
+<br><br>
+<a href="index.html" style="color:red;">← Voltar</a>
+
 </div>
+
+<script>
+function rolarDado() {
+    let dado = Math.floor(Math.random() * 20) + 1;
+
+    let atributo = document.getElementById("atributoEscolhido").value;
+    let valorAtributo = parseInt(document.getElementById(atributo).value) || 0;
+    let bonus = parseInt(document.getElementById("bonusPericia").value) || 0;
+
+    let total = dado + valorAtributo + bonus;
+
+    document.getElementById("resultado").innerHTML =
+        "Dado: " + dado +
+        " | Atributo: " + valorAtributo +
+        " | Perícia: " + bonus +
+        " | TOTAL: " + total;
+}
+
+function atualizarBarra() {
+    let valor = document.getElementById("corrupcao").value;
+    document.getElementById("barraCorrupcao").style.width = valor + "%";
+}
+</script>
 
 </body>
 </html>
