@@ -2,57 +2,59 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Fragmentos da Queda – Era I</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fragmentos da Queda</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Courier New', monospace;
-    background-color: #0a0a0a;
-    color: #e0e0e0;
-}
-
-header {
-    background: #1a001f;
-    padding: 30px;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Courier New, monospace;
     text-align: center;
-    border-bottom: 2px solid #5a0000;
 }
 
 h1 {
-    color: #b30000;
+    color: red;
+    margin-top: 60px;
+    font-size: 40px;
+    text-shadow: 0 0 10px red;
 }
 
-nav {
-    background: #111;
+.subtitulo {
+    color: #aaa;
+    margin-bottom: 50px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+
+.botao {
+    display: inline-block;
+    width: 220px;
     padding: 15px;
-    text-align: center;
-}
-
-nav a {
-    color: #e0e0e0;
-    margin: 15px;
+    background-color: #111;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    border: 2px solid red;
+    box-shadow: 0 0 15px red;
+    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #b30000;
+.botao:hover {
+    background-color: red;
+    color: black;
+    box-shadow: 0 0 25px red;
 }
 
-section {
-    padding: 40px;
-    border-bottom: 1px solid #222;
-}
-
-h2 {
-    color: #b30000;
-}
-
-footer {
-    background: #111;
-    padding: 20px;
-    text-align: center;
+.footer {
+    margin-top: 80px;
+    color: #444;
     font-size: 14px;
 }
 </style>
@@ -60,67 +62,19 @@ footer {
 </head>
 <body>
 
-<header>
-<h1>Fragmentos da Queda – Era I</h1>
-<p>Um RPG de Fantasia Sombria</p>
-</header>
+<h1>Fragmentos da Queda</h1>
+<p class="subtitulo">RPG Dark Pixel</p>
 
-<nav>
-<a href="#inicio">Início</a>
-<a href="#regras">Livro de Regras</a>
-<a href="#personagem">Criação</a>
-<a href="#atributos">Atributos</a>
-<a href="#combate">Combate</a>
-</nav>
+<div class="menu">
+    <a href="ficha.html" class="botao">Ficha de Personagem</a>
+    <a href="#" class="botao">Livro de Regras</a>
+    <a href="#" class="botao">Mundo</a>
+    <a href="#" class="botao">Inventário</a>
+</div>
 
-<section id="inicio">
-<h2>O Mundo</h2>
-<p>O mundo foi fragmentado por forças desconhecidas. 
-Fragmentos corrompidos espalham poder e destruição. 
-Cada decisão carrega consequências permanentes.</p>
-</section>
-
-<section id="regras">
-<h2>Livro de Regras</h2>
-<p>Todo teste utiliza 1d20 + Atributo + Perícia.</p>
-<p>Classes de Dificuldade:</p>
-<ul>
-<li>Fácil (10)</li>
-<li>Médio (15)</li>
-<li>Difícil (20)</li>
-</ul>
-<p>20 natural é Sucesso Crítico.<br>
-1 natural é Falha Crítica.</p>
-</section>
-
-<section id="personagem">
-<h2>Criação de Personagem</h2>
-<ul>
-<li>Escolher Nome</li>
-<li>Definir Origem</li>
-<li>Escolher Arquétipo</li>
-<li>Distribuir Atributos</li>
-<li>Selecionar Perícias</li>
-<li>Receber Marca Inicial</li>
-<li>Escolher Equipamentos</li>
-</ul>
-</section>
-
-<section id="atributos">
-<h2>Atributos Base</h2>
-<p>Vigor, Agilidade, Intelecto, Percepção, Espírito e Presença.</p>
-</section>
-
-<section id="combate">
-<h2>Combate</h2>
-<p>Iniciativa: 1d20 + Agilidade</p>
-<p>Ataque: 1d20 + atributo + perícia</p>
-<p>Dano varia conforme arma.</p>
-</section>
-  <a href="ficha.html" class="botao">Abrir Ficha</a>
-<footer>
-© 2026 Fragmentos da Queda – Era I
-</footer>
+<div class="footer">
+    © 2026 - Criado por Rafazz
+</div>
 
 </body>
 </html>
